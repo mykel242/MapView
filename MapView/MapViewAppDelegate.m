@@ -17,10 +17,19 @@
 
 @synthesize viewController=_viewController;
 
+@synthesize locationManager;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     
+    
+    self.locationManager = [[[CLLocationManager alloc] init] autorelease];
+    if([CLLocationManager locationServicesEnabled]) {
+        self.locationManager.delegate = self;
+        self.locationManager.distanceFilter = 25; // 25 meters
+        [self.locationManager startUpdatingLocation];
+    }
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -70,6 +79,29 @@
     [_window release];
     [_viewController release];
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark CLLocationManagerDelegate methods
+
+- (void)locationManager:(CLLocationManager *)manager 
+    didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    MKCoordinateSpan span;
+    span.latitudeDelta = 1.0;
+    span.longitudeDelta = 1.0;
+    MKCoordinateRegion region;
+    region.span = span;
+    region.center = newLocation.coordinate;
+    [self.viewController.mapview setRegion:region animated:YES];
+
+    self.viewController.mapview.showsUserLocation = YES;
+    self.viewController.latitude.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
+    self.viewController.longitude.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
 }
 
 @end
