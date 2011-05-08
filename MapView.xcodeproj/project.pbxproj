@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		957D201E13766D87002A6C0A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957D201D13766D87002A6C0A /* CoreLocation.framework */; };
 		95E1F4F41376342F005C0FB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E1F4F31376342F005C0FB4 /* UIKit.framework */; };
 		95E1F4F61376342F005C0FB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E1F4F51376342F005C0FB4 /* Foundation.framework */; };
 		95E1F4F81376342F005C0FB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E1F4F71376342F005C0FB4 /* CoreGraphics.framework */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		957D201D13766D87002A6C0A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		95E1F4EF1376342F005C0FB4 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E1F4F31376342F005C0FB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		95E1F4F51376342F005C0FB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				957D201E13766D87002A6C0A /* CoreLocation.framework in Frameworks */,
 				95E1F514137634C2005C0FB4 /* MapKit.framework in Frameworks */,
 				95E1F4F41376342F005C0FB4 /* UIKit.framework in Frameworks */,
 				95E1F4F61376342F005C0FB4 /* Foundation.framework in Frameworks */,
@@ -55,6 +58,7 @@
 		95E1F4E41376342F005C0FB4 = {
 			isa = PBXGroup;
 			children = (
+				957D201D13766D87002A6C0A /* CoreLocation.framework */,
 				95E1F513137634C2005C0FB4 /* MapKit.framework */,
 				95E1F4F91376342F005C0FB4 /* MapView */,
 				95E1F4F21376342F005C0FB4 /* Frameworks */,
@@ -280,6 +284,7 @@
 				95E1F5121376342F005C0FB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

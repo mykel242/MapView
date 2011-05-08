@@ -10,6 +10,8 @@
 
 @implementation MapViewViewController
 @synthesize mapview;
+@synthesize latitude;
+@synthesize longitude;
 
 -(IBAction)getlocation {
     mapview.showsUserLocation = YES;
@@ -43,6 +45,8 @@
 {
     [super dealloc];
     [mapview release];
+    [latitude release];
+    [longitude release];
 }
 
 - (void)didReceiveMemoryWarning

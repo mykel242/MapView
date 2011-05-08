@@ -12,10 +12,14 @@
 @interface MapViewViewController : UIViewController {
     
     MKMapView *mapview;
-    
+    UILabel *latitude;
+    UILabel *longitude;
     
 }
 @property (nonatomic, retain) IBOutlet MKMapView *mapview;
+@property (nonatomic, retain) IBOutlet UILabel *latitude;
+@property (nonatomic, retain) IBOutlet UILabel *longitude;
+
 -(IBAction)setMap:(id)sender;
 -(IBAction)getlocation;
 
