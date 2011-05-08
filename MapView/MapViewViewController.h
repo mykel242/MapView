@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface MapViewViewController : UIViewController {
     
+    MKMapView *mapview;
+    
+    
 }
+@property (nonatomic, retain) IBOutlet MKMapView *mapview;
+-(IBAction)setMap:(id)sender;
+-(IBAction)getlocation;
+
+
+
 
 @end
