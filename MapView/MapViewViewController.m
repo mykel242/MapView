@@ -42,6 +42,7 @@
 - (void)dealloc
 {
     [super dealloc];
+    [mapview release];
 }
 
 - (void)didReceiveMemoryWarning
