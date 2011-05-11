@@ -12,6 +12,16 @@
 @synthesize mapview;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize picker;
+
+-(IBAction)showPicker {
+    
+    picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerCameraCaptureModePhoto;
+    picker.delegate = self;
+    
+    [self presentModalViewController:picker animated:YES];
+}
 
 -(IBAction)getlocation {
     mapview.showsUserLocation = YES;
@@ -79,5 +89,21 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+#pragma mark -
+#pragma mark Image picker delegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
+	
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 
 @end
