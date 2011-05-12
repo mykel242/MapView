@@ -26,8 +26,19 @@
     self.locationManager = [[[CLLocationManager alloc] init] autorelease];
     if([CLLocationManager locationServicesEnabled]) {
         self.locationManager.delegate = self;
-        self.locationManager.distanceFilter = 25; // 25 meters
+        self.locationManager.distanceFilter = 5; // 5 meters
+        self.locationManager.headingFilter = 5;  // 5 degrees
+        
         [self.locationManager startUpdatingLocation];
+        
+        if([CLLocationManager headingAvailable]) {
+            [locationManager startUpdatingHeading];
+            
+        } else {
+            NSLog(@"Can't report heading");
+            
+        }
+
     }
     
     self.window.rootViewController = self.viewController;
@@ -101,6 +112,22 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
+}
+
+- (void)locationManager:(CLLocationManager*)manager 
+       didUpdateHeading:(CLHeading*)newHeading {
+    
+    // If the accuracy is valid, process the event.
+    if (newHeading.headingAccuracy > 0) {
+        
+        CLLocationDirection theHeading = newHeading.magneticHeading;
+        CLLocationDirection trueHeading = newHeading.trueHeading;
+        
+        NSLog(@"Heading[%f]",theHeading);
+        NSLog(@"True Heading[%f]",trueHeading);
+        
+    }
     
 }
 

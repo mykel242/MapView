@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface MapViewViewController : UIViewController 
+    <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     
     MKMapView *mapview;
     UILabel *latitude;
@@ -21,6 +22,7 @@
     UIImagePickerController *picker;
     
 }
+
 @property (nonatomic, retain) IBOutlet MKMapView *mapview;
 @property (nonatomic, retain) IBOutlet UILabel *latitude;
 @property (nonatomic, retain) IBOutlet UILabel *longitude;
