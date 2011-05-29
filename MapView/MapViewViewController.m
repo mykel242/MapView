@@ -12,16 +12,6 @@
 @synthesize mapview;
 @synthesize latitude;
 @synthesize longitude;
-@synthesize picker;
-
--(IBAction)showPicker {
-    
-    picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = UIImagePickerControllerCameraCaptureModePhoto;
-    picker.delegate = self;
-    
-    [self presentModalViewController:picker animated:YES];
-}
 
 -(IBAction)getlocation {
     mapview.showsUserLocation = YES;
@@ -69,13 +59,13 @@
 
 #pragma mark - View lifecycle
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
-*/
+
 
 - (void)viewDidUnload
 {
@@ -89,21 +79,5 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-
-#pragma mark -
-#pragma mark Image picker delegate methods
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
-	
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-	[self dismissModalViewControllerAnimated:YES];
-}
-
 
 @end

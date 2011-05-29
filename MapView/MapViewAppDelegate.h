@@ -17,9 +17,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet MapViewViewController *viewController;
-
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
 @end

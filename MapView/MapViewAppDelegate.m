@@ -14,9 +14,7 @@
 
 
 @synthesize window=_window;
-
 @synthesize viewController=_viewController;
-
 @synthesize locationManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
